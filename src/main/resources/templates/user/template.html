@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+body{
+    background-image: url('');
+    background-repeat: no-repeat;
+     background-size: cover;
+      display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+     }
+      main {
+        flex-grow: 1;
+      }
+      footer {
+        background-color: gray;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+</style>
+
+    
+    <style>
+    .sidebar {
+
+      min-height: 150vh;
+    }
+
+  </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">User Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/profile"><strong>Welcome, [[${session.uname}]]</strong></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+   <div class="row">
+        <div class="col-md-3 col-lg-2 d-none d-md-block bg-dark sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/profile">
+                        <p>
+                			User Profile
+                <i class="right fas fa-angle-left"></i>
+              </p></a>
+              
+                    </li>
+                    
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="/editprofile">
+                        <p>
+                			Edit Profile
+                <i class="right fas fa-angle-left"></i>
+              </p></a>
+              
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="/change_pass">
+                        <p>
+                			Change Password
+                <i class="right fas fa-angle-left"></i>
+              </p></a>
+              
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/user/task/myTask">
+                        <p>
+                			My Task
+                <i class="right fas fa-angle-left"></i>
+              </p></a>
+              
+                    </li>
+                    
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/user/task/new">
+                        <p>
+                			Assign Task To
+                <i class="right fas fa-angle-left"></i>
+              </p></a>
+              
+                    </li>
+                      
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/user/task/assignBy">
+                        <p>
+                			Assigned Task
+                <i class="right fas fa-angle-left"></i>
+              </p></a>
+              
+                    </li> 
+                    
+                </ul>
+            </div>
+            </div>
+            <div class="content-container col-md-9 col-lg-10">
+        <section layout:fragment="content1">
+        </section>
+    
+</div>
+        </div>
+     
+	
+</aside>
+
+<footer class="bg-primary text-light py-2">
+                <p class="text-center">&copy; 2023 Employee Management System. All rights reserved.</p>
+</footer>
+
+    <aside class="control-sidebar control-sidebar-primary">
+        <!-- Control sidebar content goes here -->
+    </aside>
+
+<div th:if="${session.msg != null}">
+
+    <script>
+             alert("[[${session.msg}]]")
+         </script>
+    <div th:text="${@sessionUtilityBean.removeVerificationMessageFromSession()}"></div>
+</div>
+
+</div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-fm5ytGwov6O3U6y+aqg9fU+3cEMjLrJrSJlYTKXT/09wLoTP/Ku6Ukiv1Hg9dU3B"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
